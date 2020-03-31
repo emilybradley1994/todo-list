@@ -1,0 +1,19 @@
+h1 {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 36pt;
+}
+
+
+.page-header {
+    background-color: rgb(226, 107, 147);
+    padding: 25px 20px 35px 20px;
+}
+
+.content {
+    margin: 40px;
+}
+
+ul {
+    list-style-type: none;
+}

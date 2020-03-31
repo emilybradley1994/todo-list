@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/todo.css' %}">
+    <title>myapp</title>
+</head>
+<body>
+    <div class="page-header text-center"><h1>to-do list</h1></div>
+    <div class = "content container text-center">
+        {% if list_items %}
+            <ul>
+                {% for item in list_items %}
+                    <li>{{ item.item }} <a class="btn btn-default" href="{% url 'post_remove' pk=item.pk %}"><span class="glyphicon glyphicon-remove"></span></a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div class = "form text-center">
+        <h4>what do you need to do today...?</h4>
+
+        <form method="POST" class="post-form" placeholder="What do you need to do today?">
+            {% csrf_token %} <!-- to make form secure -->
+            {{ form.as_p }} <!-- to display the form -->
+            <button type="submit" class="save btn btn-default">add</button>
+        </form>
+    </div>
+
+</body>
+</html>
